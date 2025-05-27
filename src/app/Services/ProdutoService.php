@@ -9,10 +9,24 @@ class ProdutoService
 {
     public function __construct(private Produto $produtoModel) {}
 
-    public function listarProdutos(int $perPage = 10, ?string $search = null): LengthAwarePaginator
+    public function listarProdutos(
+        int $perPage = 10, 
+        ?string $search = null,
+        ?float $preco = null,
+        ?int $estoque = null
+        ): LengthAwarePaginator
     {
+                
         return $this->produtoModel
-            ->when($search, fn($query) => $query->where('nome', 'like', "%{$search}%"))
+            ->when($search, fn($query) =>
+                $query->where('nome', 'like', "%{$search}%")
+            )
+            ->when($preco, fn($query) =>
+                $query->where('preco', $preco)
+            )
+            ->when($estoque, fn($query) =>
+                $query->where('quantidade_estoque', $estoque)
+            )
             ->paginate($perPage);
     }
 

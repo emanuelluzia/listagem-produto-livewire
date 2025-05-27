@@ -73,6 +73,7 @@ class ProductForm extends Component
     {
         $this->validate();
         $preco = floatval($this->preco);
+        $preco = str_replace(',', '.',$this->preco);
         
 
         $data = [

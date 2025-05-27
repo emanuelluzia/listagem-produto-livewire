@@ -16,6 +16,8 @@ class ProductList extends Component
         'last_page' => 1,
     ];
     public $search = '';
+    public $precoFiltro = null;
+    public $estoque = null;
     public $perPage = 5;
     protected $token;
 
@@ -41,13 +43,16 @@ class ProductList extends Component
     public function loadProducts()
     {           
 
+        $precoFiltro = $this->precoFiltro ? str_replace(',', '.',$this->precoFiltro): null;
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . session('auth_token'),
             'Accept' => 'application/json',
         ])->get("http://172.17.0.1:8000/api/produtos", [
             'page' => $this->pagination['current_page'],
             'per_page' => $this->perPage,
-            'search' => $this->search
+            'search' => $this->search,
+            'preco' => $precoFiltro,
+            'estoque' => $this->estoque,
         ]);
 
         if ($response->successful()) {
@@ -81,6 +86,31 @@ class ProductList extends Component
     public function updatedSearch()
     {
         $this->pagination['current_page'] = 1; // Reinicia para página 1
+        $this->loadProducts();
+    }
+
+    public function deleteProduct($id)
+    {
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . session('auth_token'),
+            'Accept' => 'application/json',
+        ])->delete("http://172.17.0.1:8000/api/produtos/{$id}");
+
+        if ($response->successful()) {
+            $this->loadProducts();
+            session()->flash('message', 'Produto excluído com sucesso!');
+        } else {
+            session()->flash('error', 'Erro ao excluir o produto.');
+        }
+    }
+
+    public function clearFilters()
+    {
+        $this->search = '';
+        $this->precoFiltro = '';
+        $this->estoque = '';
+        $this->pagination['current_page'] = 1;
+
         $this->loadProducts();
     }
 

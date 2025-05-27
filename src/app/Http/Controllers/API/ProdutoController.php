@@ -16,8 +16,10 @@ class ProdutoController extends Controller
     {
         $perPage = request('per_page', 10);
         $search = request('search');
+        $preco = request('preco');
+        $estoque = request('estoque');
         
-        $produtos = $this->produtoService->listarProdutos($perPage, $search);
+        $produtos = $this->produtoService->listarProdutos($perPage, $search,$preco, $estoque );
         
         return response()->json([
             'data' => $produtos->items(),
