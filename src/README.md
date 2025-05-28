@@ -1,7 +1,7 @@
 # Meu Projeto Laravel com Livewire
 
 Este projeto é uma aplicação web desenvolvida em Laravel, utilizando Livewire no front-end para consumir a API.
-O objetivo do sistema é fornecer um sistema  é realizar o gerenciamento de "Produtos".
+O objetivo é fornecer um sistema para realizar o gerenciamento de "Produtos".
 
 A aplicação oferece as seguintes funcionalidades principais:
 
