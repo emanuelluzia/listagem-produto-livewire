@@ -37,7 +37,7 @@ class ProductForm extends Component
 
       public function mount()
     {
-        $this->showModal = false; // Garante que o modal inicia fechado
+        $this->showModal = false; 
     }
 
     public function createProduct()
@@ -100,8 +100,7 @@ class ProductForm extends Component
             session()->flash('message', 'Produto salvo com sucesso.');
             $this->reset();
         } else {
-            // dd($response->json(), $headers,$data,$this->isEditing,$this->id);
-            $erro = $response->json('message'); // ou apenas $response->json() se for um array
+            $erro = $response->json('message');
             session()->flash('error', 'Erro ao salvar produto: ' . $erro);
         }
     }

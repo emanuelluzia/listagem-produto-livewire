@@ -85,7 +85,7 @@ class ProductList extends Component
 
     public function updatedSearch()
     {
-        $this->pagination['current_page'] = 1; // Reinicia para página 1
+        $this->pagination['current_page'] = 1; 
         $this->loadProducts();
     }
 
