@@ -47,7 +47,7 @@ Siga estes passos para executar a aplicação utilizando Docker:
 
 ## Como rodar os testes
 
-Para executar os testes da aplicação, utilize o seguinte comando no seu terminal, dentro do diretório raiz do projeto:
+Para executar os testes da aplicação, acesse o container e utilize o seguinte comando no seu terminal, dentro do diretório raiz do projeto:
 
 ```bash
-docker-compose exec app php artisan test
+php artisan test tests/Unit
