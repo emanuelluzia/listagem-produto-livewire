@@ -7,8 +7,26 @@ A aplicação oferece as seguintes funcionalidades principais:
 
 * **Gerenciamento de Produtos:** Permite a criação, leitura, atualização e exclusão (CRUD) de produtos, cada um contendo nome (único e obrigatório), descrição (opcional), preço (obrigatório e positivo) e quantidade em estoque (obrigatória e não negativa).
 * **Interface Web Completa:** Uma interface web intuitiva com listagem paginada, funcionalidade de busca e formulários para todas as operações CRUD, com validações tanto no frontend quanto no backend.
+* Listagem:
+* ![image](https://github.com/user-attachments/assets/8b6a4abf-5be5-44d0-8d64-40c96b6dfa10)
+* Paginação:
+* ![image](https://github.com/user-attachments/assets/4a728c42-201c-4522-bf4e-060d7669c9a9)
+
+* Filtros:
+* ![image](https://github.com/user-attachments/assets/92045f89-3e45-4d0b-9932-ce3f51b0e66c)
+
+* Criação:
+* ![image](https://github.com/user-attachments/assets/6d3a48b2-c5fa-4d96-950c-3ce8d710a4af)
+* Edição:
+* ![image](https://github.com/user-attachments/assets/fe562fb0-e8c2-4126-b7d0-943047aabcd1)
+
+
+
 * **API RESTful Protegida:** Uma API RESTful para realizar as mesmas operações CRUD sobre produtos, protegida por autenticação e com uma estrutura de resposta padronizada.
 * **Sistema de Autenticação:** Implementação de login e senha para proteger o acesso à interface web e à API.
+ ![image](https://github.com/user-attachments/assets/e7d3f08b-1eeb-4514-8fd9-2aff902d7ce1)
+![image](https://github.com/user-attachments/assets/8de312b4-7965-4675-a6b3-2dcd75f368c4)
+
 * **Ambiente Dockerizado:** Configuração completa de um ambiente de desenvolvimento utilizando Docker, incluindo a aplicação Laravel e um banco de dados MySQL.
 * **Testes Automatizados:** Implementação de testes unitários e de integração para garantir a robustez e a qualidade do código.
 
