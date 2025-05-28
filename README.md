@@ -69,3 +69,15 @@ Para executar os testes da aplicação, acesse o container e utilize o seguinte 
 
 ```bash
 php artisan test tests/Unit
+```
+## Possíveis Problemas e Soluções
+
+**Problemas de Permissão:**
+
+Se você encontrar erros como "Permission denied" ao acessar a aplicação, pode ser necessário ajustar as permissões dentro do container Docker. Execute os seguintes comandos dentro do container `app`:
+
+```bash
+docker-compose exec app bash
+chown -R www-data:www-data /var/www/storage
+chown -R www-data:www-data /var/www/bootstrap/cache
+exit
